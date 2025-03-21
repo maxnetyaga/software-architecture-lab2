@@ -106,7 +106,7 @@ func TestPostfixToInfix(t *testing.T) {
 	}
 
 	for i, tt := range tests {
-		t.Run(fmt.Sprintf("Test %d", i+1), func(t *testing.T) {
+		t.Run(tt.name, func(t *testing.T) {
 			result, err := PostfixToInfix(tt.input)
 			if tt.err {
 				assert.Error(t, err, fmt.Sprintf("Test %d: Expected error", i+1))
