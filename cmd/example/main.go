@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	lab2 "github.com/roman-mazur/architecture-lab-2"
+	lab2 "github.com/maxnetyaga/software-architecture-lab1"
 )
 
 var (
@@ -22,6 +22,11 @@ func main() {
 	//       }
 	//       err := handler.Compute()
 
-	res, _ := lab2.PrefixToPostfix("+ 2 2")
-	fmt.Println(res)
+	postfix := "3 4 + 5 *" // (3 + 4) * 5
+	infix, err := lab2.PostfixToInfix(postfix)
+	if err != nil {
+		fmt.Println("Помилка:", err)
+		return
+	}
+	fmt.Println("Інфіксний вираз:", infix)
 }

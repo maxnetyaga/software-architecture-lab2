@@ -1,4 +1,6 @@
-Шаблон для 2-гої роботи з архітектури ПЗ
----
+# Software architecture. Lab 2
 
-Використайте кнопку **"Use this template"**, щоб створити власний репозиторій.
+## AUTHORS
+- KostianDev
+- maxnetyaga
+- zhkcll
