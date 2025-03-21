@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	lab2 "github.com/maxnetyaga/software-architecture-lab1"
+	lab2 "github.com/maxnetyaga/software-architecture-lab2"
 )
 
 var (
