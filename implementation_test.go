@@ -103,6 +103,12 @@ func TestPostfixToInfix(t *testing.T) {
 			expected:    "",
 			err: true,
 		},
+		{
+    			name:        "Failing test",
+    			input:       "3 4 +",
+    			expected:    "(3 - 4)",
+    			err: false,
+		},
 	}
 
 	for i, tt := range tests {
