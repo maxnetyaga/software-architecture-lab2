@@ -2,40 +2,43 @@ package lab2
 
 import (
 	"errors"
+	"strconv"
 	"strings"
 )
 
-func isOperator(s string) bool {
-	return s == "+" || s == "-" || s == "*" || s == "/"
+var validOperators = map[string]bool{
+	"+": true,
+	"-": true,
+	"*": true,
+	"/": true,
+	"^": true,
 }
 
-// PostfixToInfix перетворює постфіксний вираз у інфіксний
-func PostfixToInfix(input string) (string, error) {
-	postfix := strings.Fields(input)
-	var stack []string
+func PostfixToInfix(expression string) (string, error) {
+	stack := []string{}
+	tokens := strings.Fields(expression)
 
-	for _, token := range postfix {
-		if isOperator(token) {
+	for _, token := range tokens {
+		if _, err := strconv.Atoi(token); err == nil {
+			stack = append(stack, token)
+		} else if validOperators[token] {
 			if len(stack) < 2 {
-				return "", errors.New("недостатньо операндів у виразі")
+				return "", errors.New("invalid expression: not enough operands")
 			}
 
-			// Два останні операнди зі стеку
-			op2 := stack[len(stack)-1]
-			stack = stack[:len(stack)-1]
-			op1 := stack[len(stack)-1]
-			stack = stack[:len(stack)-1]
+			operand2 := stack[len(stack)-1]
+			operand1 := stack[len(stack)-2]
+			stack = stack[:len(stack)-2]
 
-			// Формуємо інфіксний вираз і додаємо його назад у стек
-			expr := "(" + op1 + " " + token + " " + op2 + ")"
-			stack = append(stack, expr)
+			newExpr := "(" + operand1 + " " + token + " " + operand2 + ")"
+			stack = append(stack, newExpr)
 		} else {
-			stack = append(stack, token)
+			return "", errors.New("invalid token: " + token)
 		}
 	}
 
 	if len(stack) != 1 {
-		return "", errors.New("некоректний постфіксний вираз")
+		return "", errors.New("invalid expression: too many operands")
 	}
 
 	return stack[0], nil
