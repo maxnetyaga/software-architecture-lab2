@@ -70,7 +70,7 @@ func TestPostfixToInfix(t *testing.T) {
 		{
 			name:        "Complex expression 3",
 			input:  	 "10 2 / 3 * 4 2 ^ + 5 - 6 7 + *",
-			expected:    "(((((10 / 2) * 3) + (4 ^ 2)) - 5) * (6 + 7)",
+			expected:    "(((((10 / 2) * 3) + (4 ^ 2)) - 5) * (6 + 7))",
 			err: false,
 		},
 		{
@@ -82,7 +82,7 @@ func TestPostfixToInfix(t *testing.T) {
 		{
 			name:        "Complex expression 5",
 			input:  	 "2 3 ^ 4 5 + * 6 - 7 / 8 9 + *",
-			expected:    "(((((2 ^ 3) * (4 + 5)) - 6) / 7) * (8 + 9)",
+			expected:    "(((((2 ^ 3) * (4 + 5)) - 6) / 7) * (8 + 9))",
 			err: false,
 		},
 		{
