@@ -1,9 +1,7 @@
-// TODO: Переіменуйте на власний модуль.
 module github.com/maxnetyaga/software-architecture-lab2
 
-go 1.22
+go 1.24.0
 
-// TODO: Змініть, якщо вам потрібно використовувати іншу бібліотеку.
 require github.com/stretchr/testify v1.10.0
 
 require github.com/maxnetyaga/software-architecture-lab2 v0.0.0-20240225152902-9d9b7061f2f2
